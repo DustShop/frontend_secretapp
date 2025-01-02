@@ -5,8 +5,9 @@ import Container from "@/components/global/container";
 import Icons from "../../global/icons";
 import { HoveredLink, Menu, MenuItem } from "../../ui/navbar-menu";
 import { useState } from "react";
-import { Languages } from "lucide-react";
 import { Button } from "../../ui/button";
+import { TbWorld } from "react-icons/tb";
+
 
 interface NavbarProps {
   preview?: boolean;
@@ -32,8 +33,12 @@ const Navbar: React.FC<NavbarProps> = ({
           <>
             <nav className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <ul className="flex items-center justify-center gap-8">
-                <Button>Escorts</Button>
-                <Button>Night Houses</Button>
+                <Button className="hover:bg-gray-200 hover:rounded-lg transition duration-300">
+                  Escorts
+                </Button>
+                <Button className="hover:bg-gray-200 hover:rounded-lg transition duration-300">
+                  Night Houses
+                </Button>
               </ul>
             </nav>
             <div className="flex items-center gap-4">
@@ -42,7 +47,7 @@ const Navbar: React.FC<NavbarProps> = ({
                   setActive={setActive}
                   active={active}
                   item="Language"
-                  icon={<Languages />}
+                  icon={<TbWorld />}
                 >
                   <div className="flex flex-col space-y-4 text-sm">
                     <HoveredLink href="/english">English</HoveredLink>
