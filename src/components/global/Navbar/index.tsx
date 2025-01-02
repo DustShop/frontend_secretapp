@@ -3,10 +3,10 @@ import Link from "next/link";
 import Container from "@/components/global/container";
 
 import Icons from "../../global/icons";
-import { HoveredLink, MenuItem } from "../../ui/navbar-menu";
+import { HoveredLink, Menu, MenuItem } from "../../ui/navbar-menu";
 import { useState } from "react";
-import { Input } from "../../ui/input";
-import { Languages, Search } from "lucide-react";
+import { Languages } from "lucide-react";
+import { Button } from "../../ui/button";
 
 interface NavbarProps {
   preview?: boolean;
@@ -20,7 +20,7 @@ const Navbar: React.FC<NavbarProps> = ({
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <header className="px-4 h-20 sticky top-0 inset-x-0 w-full bg-black backdrop-blur-lg border-b border-border z-50">
+    <header className="px-4 sticky top-0 inset-x-0 w-full text-black bg-transparent backdrop-blur-lg border-b border-border z-50">
       <Container reverse>
         <div className="flex items-center justify-between h-full mx-auto md:max-w-screen-xl">
           <div className="flex items-start">
@@ -32,39 +32,26 @@ const Navbar: React.FC<NavbarProps> = ({
           <>
             <nav className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <ul className="flex items-center justify-center gap-8">
-                <Input
-                  type="text"
-                  placeholder="Search"
-                  leftIcon={<Search />}
-                  size={100}
-                />
+                <Button>Escorts</Button>
+                <Button>Night Houses</Button>
               </ul>
             </nav>
             <div className="flex items-center gap-4">
-              <MenuItem
-                setActive={setActive}
-                active={active}
-                item="Language"
-                icon={<Languages />}
-              >
-                <div className="flex flex-col space-y-4 text-sm">
-                  <HoveredLink href="/english">English</HoveredLink>
-                  <HoveredLink href="/spanish">Spanish</HoveredLink>
-                  <HoveredLink href="/french">French</HoveredLink>
-                </div>
-              </MenuItem>
-              <MenuItem
-                setActive={setActive}
-                active={active}
-                item="Login and Register"
-              >
-                <div className="flex flex-col space-y-4 text-sm">
-                  <HoveredLink href="/hobby">Hobby</HoveredLink>
-                  <HoveredLink href="/individual">Individual</HoveredLink>
-                  <HoveredLink href="/team">Team</HoveredLink>
-                  <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-                </div>
-              </MenuItem>
+              <Menu setActive={setActive}>
+                <MenuItem
+                  setActive={setActive}
+                  active={active}
+                  item="Language"
+                  icon={<Languages />}
+                >
+                  <div className="flex flex-col space-y-4 text-sm">
+                    <HoveredLink href="/english">English</HoveredLink>
+                    <HoveredLink href="/spanish">Spanish</HoveredLink>
+                    <HoveredLink href="/french">French</HoveredLink>
+                  </div>
+                </MenuItem>
+              </Menu>
+              <button>Login and Register</button>
             </div>
           </>
         </div>
