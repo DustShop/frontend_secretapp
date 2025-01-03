@@ -32,7 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ name = "Escort Site" }) => {
   useClickOutside(dropdownRef, () => setIsDropdownOpen(false));
 
   return (
-    <header className="px-4 py-4 sticky top-0 inset-x-0 w-full text-black bg-transparent backdrop-blur-lg border-b border-border z-50">
+    <header className="max-w-screen-xl px-4 py-4 sticky top-0 inset-x-0 w-full text-black bg-transparent backdrop-blur-lg border-b border-border z-50">
       <Container reverse>
         <div className="flex items-center justify-between h-full mx-auto md:max-w-screen-2xl">
           <div className="flex items-start">

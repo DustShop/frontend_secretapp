@@ -1,3 +1,4 @@
+'use client'
 import Layout from "@/layout";
 import Wrapper from "../components/global/wrapper";
 import Container from "../components/global/container";

@@ -7,9 +7,11 @@ import { TiArrowUnsorted } from "react-icons/ti";
 import { Button } from "../../ui/button";
 import { SearchBarProps } from "./types";
 import useClickOutside from "../../../hooks/useClickOutside";
+import useMediaQuery from "../../../hooks/useMediaQuery";
 
 const Search = ({ selectedFilter }: SearchBarProps) => {
   const searchParams = useSearchParams();
+  const isTablet = useMediaQuery("(max-width: 768px)");
 
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
 
@@ -74,7 +76,7 @@ const Search = ({ selectedFilter }: SearchBarProps) => {
             )}
           </div>
 
-          {selectedFilter === "Escorts" && (
+          {selectedFilter === "Escorts" && !isTablet && (
             <div className="hidden lg:flex flex-row items-center ">
               <Button
                 onClick={() => setSelected("Female")}
@@ -118,8 +120,8 @@ const Search = ({ selectedFilter }: SearchBarProps) => {
               </Button>
             </div>
           )}
-          <div className="p-2 bg-rose-500 rounded-full text-white">
-            <FaSearch className="text-[12px]" />
+          <div className="p-2 bg-black rounded-full text-white">
+            <FaSearch className="text-[13px]" />
           </div>
         </div>
       </div>
