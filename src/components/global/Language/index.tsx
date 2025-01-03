@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { TbWorld } from "react-icons/tb";
 import i18n from "@/utils/helpers/i18n";
+import useClickOutside from "@/hooks/useClickOutside";
 
 const LanguageDropdown: React.FC = () => {
   const [LanguageDrop, setLanguageDrop] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null!);
 
   const toggleDropdown = () => {
     setLanguageDrop(!LanguageDrop);
@@ -14,9 +16,10 @@ const LanguageDropdown: React.FC = () => {
     setLanguageDrop(false);
   };
 
+  useClickOutside(dropdownRef, () => setLanguageDrop(false));
 
   return (
-    <div className="absolute right-[100px]">
+    <div className="relative" ref={dropdownRef}>
       <button
         onClick={toggleDropdown}
         className="flex items-center px-2 py-2 rounded-full hover:bg-gray-100 transition"
@@ -58,4 +61,4 @@ const LanguageDropdown: React.FC = () => {
   );
 };
 
-export default LanguageDropdown
+export default LanguageDropdown;

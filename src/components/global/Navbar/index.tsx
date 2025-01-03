@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Container from "@/components/global/container";
 import Icons from "../../global/icons";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "../../ui/button";
 import LanguageDropdown from "../Language";
 import { useTranslation } from "react-i18next";
@@ -10,6 +10,7 @@ import { RxAvatar } from "react-icons/rx";
 import { Menu } from "lucide-react";
 import Search from "../SearchBar";
 import { VscSettings } from "react-icons/vsc";
+import useClickOutside from "../../../hooks/useClickOutside";
 
 
 interface NavbarProps {
@@ -22,9 +23,13 @@ const Navbar: React.FC<NavbarProps> = ({ name = "Escort Site" }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const { t } = useTranslation();
 
+  const dropdownRef = useRef<HTMLDivElement>(null!);
+
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
+  useClickOutside(dropdownRef, () => setIsDropdownOpen(false));
 
   return (
     <header className="px-4 py-4 sticky top-0 inset-x-0 w-full text-black bg-transparent backdrop-blur-lg border-b border-border z-50">
@@ -60,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = ({ name = "Escort Site" }) => {
               </Button>
             </ul>
           </nav>
-          <div className="relative flex items-center">
+          <div className="relative flex items-center" ref={dropdownRef}>
             <LanguageDropdown />
             <div
               onClick={toggleDropdown}
@@ -125,11 +130,11 @@ const Navbar: React.FC<NavbarProps> = ({ name = "Escort Site" }) => {
         </div>
 
         <div className="flex items-center justify-center h-full mx-auto md:max-w-screen-2xl mt-4 mb-4">
-          <Search />
+          <Search selectedFilter={selected} />
         </div>
         <div className="flex items-center justify-center h-full mx-auto md:max-w-screen-2xl mt-4 mb-4">
-          <Button variant={'link'}>
-            <VscSettings size={15} className="mr-2"/>
+          <Button variant={"link"}>
+            <VscSettings size={15} className="mr-2" />
             More Filters
           </Button>
         </div>
