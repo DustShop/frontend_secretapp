@@ -8,6 +8,8 @@ import LanguageDropdown from "../Language";
 import { useTranslation } from "react-i18next";
 import { RxAvatar } from "react-icons/rx";
 import { Menu } from "lucide-react";
+import Search from "../SearchBar";
+import { VscSettings } from "react-icons/vsc";
 
 
 interface NavbarProps {
@@ -27,7 +29,6 @@ const Navbar: React.FC<NavbarProps> = ({ name = "Escort Site" }) => {
   return (
     <header className="px-4 py-4 sticky top-0 inset-x-0 w-full text-black bg-transparent backdrop-blur-lg border-b border-border z-50">
       <Container reverse>
-        {/* Primeira linha do header */}
         <div className="flex items-center justify-between h-full mx-auto md:max-w-screen-2xl">
           <div className="flex items-start">
             <Link href="/" className="flex items-center gap-2">
@@ -36,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({ name = "Escort Site" }) => {
             </Link>
           </div>
           <nav className="hidden md:block">
-            <ul className="flex items-center justify-center gap-4">
+            <ul className="flex items-center justify-center gap-6">
               <Button
                 onClick={() => setSelected("Escorts")}
                 className={`transition duration-300 ${
@@ -123,11 +124,14 @@ const Navbar: React.FC<NavbarProps> = ({ name = "Escort Site" }) => {
           </div>
         </div>
 
-        {/* Segunda linha do header */}
         <div className="flex items-center justify-center h-full mx-auto md:max-w-screen-2xl mt-4 mb-4">
-          <div className="w-full md:max-w-2xl h-14 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
-            {/* Barra de pesquisa */}
-          </div>
+          <Search />
+        </div>
+        <div className="flex items-center justify-center h-full mx-auto md:max-w-screen-2xl mt-4 mb-4">
+          <Button variant={'link'}>
+            <VscSettings size={15} className="mr-2"/>
+            More Filters
+          </Button>
         </div>
       </Container>
     </header>

@@ -8,10 +8,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div className="flex flex-col items-center w-full">
       <Head>
-        Escort
+        <title>Escort Site</title>
       </Head>
       <Navbar />
-       <section className='w-full relative flex items-center justify-center flex-col px-4 md:px-0 py-8'>
+      <section className="w-full relative flex items-center justify-center flex-col px-4 md:px-0 py-8">
         {children}
       </section>
       <Footer />
