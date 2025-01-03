@@ -1,8 +1,13 @@
+'use client'
 import Link from 'next/link'
 
 import Icons from '../global/icons'
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+
+  const { t } = useTranslation();
+  
   return (
     <footer className="flex flex-col relative items-center justify-center border-t border-border pt-16 pb-8 px-6 lg:px-8 w-full max-w-6xl mx-auto lg:pt-32">
       <div className="grid gap-8 xl:grid-cols-3 xl:gap-8 w-full">
@@ -45,7 +50,7 @@ const Footer = () => {
                   href=""
                   className="hover:text-foreground transition-all duration-300"
                 >
-                  teste
+                  {t("footer.about-us")}
                 </Link>
               </li>
               <li className="mt-2">
