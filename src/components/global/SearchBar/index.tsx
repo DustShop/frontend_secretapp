@@ -35,7 +35,7 @@ const Search = ({ selectedFilter }: SearchBarProps) => {
   };
 
   return (
-    <div className="flex flex-row items-center border-[1px] w-full min-h-14 md:w-auto py-2 rounded-full shadow-sm transition duration-300 cursor-pointer">
+    <div className="flex flex-row items-center border-[1px] sm:w-auto min-h-14 md:w-auto py-2 rounded-full shadow-sm transition duration-300 cursor-pointer">
       <div className="flex flex-row justify-between items-center">
         <div className="flex flex-row items-center text-sm font-bold px-6 text-[#585858] hover:text-gray-800 transition duration-200">
           <HiMapPin size={20} className="mr-2" />
@@ -75,7 +75,7 @@ const Search = ({ selectedFilter }: SearchBarProps) => {
           </div>
 
           {selectedFilter === "Escorts" && (
-            <div>
+            <div className="hidden lg:flex flex-row items-center ">
               <Button
                 onClick={() => setSelected("Female")}
                 className={`transition duration-300 ${
