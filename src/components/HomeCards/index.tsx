@@ -38,7 +38,7 @@ export const HomeCards = () => {
                     color: "transparent",
                   }}
                   sizes="100vw"
-                  src=""
+                  src="/"
                 />
               </div>
             </div>

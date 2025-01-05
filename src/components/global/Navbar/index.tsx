@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Link from "next/link";
 import Container from "@/components/global/container";
 import Icons from "../../global/icons";
@@ -11,7 +11,6 @@ import { Menu } from "lucide-react";
 import Search from "../SearchBar";
 import { VscSettings } from "react-icons/vsc";
 import useClickOutside from "../../../hooks/useClickOutside";
-
 
 interface NavbarProps {
   preview?: boolean;
@@ -132,7 +131,7 @@ const Navbar: React.FC<NavbarProps> = ({ name = "Escort Site" }) => {
         <div className="flex items-center justify-center h-full mx-auto md:max-w-screen-2xl mt-4 mb-4">
           <Search selectedFilter={selected} />
         </div>
-        <div className="flex items-center justify-center h-full mx-auto md:max-w-screen-2xl mt-4 mb-4">
+        <div className="hidden md:flex items-center justify-center h-full mx-auto md:max-w-screen-2xl mt-4 mb-4">
           <Button variant={"link"}>
             <VscSettings size={15} className="mr-2" />
             More Filters
@@ -143,4 +142,4 @@ const Navbar: React.FC<NavbarProps> = ({ name = "Escort Site" }) => {
   );
 };
 
-export default Navbar
+export default Navbar;
