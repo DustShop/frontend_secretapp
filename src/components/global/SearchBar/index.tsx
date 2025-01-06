@@ -3,17 +3,20 @@ import React, { useRef, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { HiMapPin } from "react-icons/hi2";
 import { TiArrowUnsorted } from "react-icons/ti";
+import { VscSettings } from "react-icons/vsc";
 import { Button } from "../../ui/button";
 import { SearchBarProps } from "./types";
 import useClickOutside from "../../../hooks/useClickOutside";
-import { VscSettings } from "react-icons/vsc";
 import Modal from "../Modal";
 
 const Search = ({ selectedFilter }: SearchBarProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const [, setIsModalOpen] = useState<boolean>(false);
+
   const [selectedDistance, setSelectedDistance] =
     useState<string>("within 5mi");
+    
   const [selected, setSelected] = useState<string>("");
   const dropdownRef = useRef<HTMLDivElement>(null!);
 
@@ -123,24 +126,29 @@ const Search = ({ selectedFilter }: SearchBarProps) => {
         </div>
 
         <div className="md:hidden relative flex items-center">
-          <div
-            onClick={() => setIsModalOpen(true)}
-            className="cursor-pointer rounded-full shadow-lg transition duration-300 flex flex-row justify-between items-center gap-2 border border-gray-300 p-2 hover:rounded-full hover:shadow-lg sm:hover:rounded-full sm:hover:shadow-lg"
-          >
-            <VscSettings className="w-6 h-6" />
-          </div>
+          <Modal>
+            <Modal.Trigger name="settingsModal">
+              <div className="cursor-pointer rounded-full shadow-lg transition duration-300 flex flex-row justify-between items-center gap-2 border border-gray-300 p-2 hover:rounded-full hover:shadow-lg sm:hover:rounded-full sm:hover:shadow-lg">
+                <VscSettings className="w-6 h-6" />
+              </div>
+            </Modal.Trigger>
+            <Modal.Window name="settingsModal">
+              <div>
+                <Modal.WindowHeader title="Filters" />
+                <div className="p-4">
+                  <p>This is the settings modal content.</p>
+                  <button
+                    onClick={() => setIsModalOpen(false)}
+                    className="btn btn-secondary mt-4"
+                  >
+                    Close Modal
+                  </button>
+                </div>
+              </div>
+            </Modal.Window>
+          </Modal>
         </div>
       </div>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <h2 className="text-xl font-bold">Modal Title</h2>
-        <p className="mt-2">This is a modal content.</p>
-        <button
-          onClick={() => setIsModalOpen(false)}
-          className="btn btn-secondary mt-4"
-        >
-          Close Modal
-        </button>
-      </Modal>
     </>
   );
 };
