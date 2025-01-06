@@ -5,8 +5,8 @@ import Icons from '../global/icons'
 const Footer = () => {
   return (
     <footer className="flex flex-col relative items-center justify-center border-t border-border pt-16 pb-8 px-6 lg:px-8 w-full max-w-6xl mx-auto lg:pt-32 bg-[#ffcbdb]">
-      <div className="grid gap-8 xl:grid-cols-5 xl:gap-8 w-full">
-        <div className="grid-cols-4 gap-6 grid xl:col-span-2 xl:mt-0">
+      <div className="grid gap-8 xl:grid-cols-4 xl:gap-8 w-full">
+        <div className="grid-cols-4 gap-6 grid xl:col-span-8 xl:mt-0">
           <div className="flex flex-row gap-1 items-center">
             <Icons.logo className="w-7 h-7" />
             <p className="text-black text-sm text-start">Escort Site</p>
