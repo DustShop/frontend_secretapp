@@ -4,8 +4,18 @@
       "navbar": {
         "home": "Home",
         "login-and-register": "Login and register",
-        "search-placeholder": "Search"
+        "search-placeholder": "Search",
+        "options": {
+          "escorts": "Escorts",
+          "nighthouses": "Nighthouses"
+        }
       }
+    },
+    "footer": {
+      "about-us": "About us",
+      "contact": "Contact",
+      "terms-of-use": "Terms of use",
+      "privacy-policy": "Privacy policy"
     }
   }
 }

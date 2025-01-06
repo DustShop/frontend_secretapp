@@ -32,12 +32,9 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   const isActive = active === item;
 
   return (
-    <div
-      onMouseEnter={() => setActive(item)}
-      className="relative"
-    >
+    <div onMouseEnter={() => setActive(item)} className="relative">
       {icon ? (
-        <button className="flex items-center justify-center w-10 h-10">
+        <button className="flex items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-200 hover:rounded-lg transition duration-300">
           {icon}
         </button>
       ) : (

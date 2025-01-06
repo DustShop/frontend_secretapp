@@ -1,8 +1,10 @@
+'use client'
 import Link from 'next/link'
 
 import Icons from '../global/icons'
 
 const Footer = () => {
+  
   return (
     <footer className="flex flex-col relative items-center justify-center border-t border-border pt-16 pb-8 px-6 lg:px-8 w-screen mx-auto bg-[#ffcbdb]">
       <div className="grid gap-8 xl:grid-cols-4 xl:gap-8 w-full pb-8">
