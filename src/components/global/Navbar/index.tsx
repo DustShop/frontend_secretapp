@@ -33,7 +33,7 @@ const Navbar: React.FC<NavbarProps> = ({ name = "Escort Site" }) => {
   return (
     <header className="max-w-screen-xl px-4 py-4 sticky top-0 inset-x-0 w-full text-black bg-transparent backdrop-blur-lg border-b border-border z-50">
       <Container reverse>
-        <div className="flex items-center justify-between h-full mx-auto md:max-w-screen-2xl">
+        <div className="hidden md:flex items-center justify-between h-full mx-auto md:max-w-screen-2xl">
           <div className="flex items-start">
             <Link href="/" className="flex items-center gap-2">
               <Icons.logo className="w-8 h-8" />
@@ -64,7 +64,7 @@ const Navbar: React.FC<NavbarProps> = ({ name = "Escort Site" }) => {
               </Button>
             </ul>
           </nav>
-          <div className="relative flex items-center" ref={dropdownRef}>
+          <div className="relative flex items-center gap-4" ref={dropdownRef}>
             <LanguageDropdown />
             <div
               onClick={toggleDropdown}
@@ -128,7 +128,7 @@ const Navbar: React.FC<NavbarProps> = ({ name = "Escort Site" }) => {
           </div>
         </div>
 
-        <div className="flex items-center justify-center h-full mx-auto md:max-w-screen-2xl mt-4 mb-4">
+        <div className="flex items-center justify-center h-full mx-auto md:max-w-screen-2xl mt-0 mb-0 md:mt-4 md:mb-4">
           <Search selectedFilter={selected} />
         </div>
         <div className="hidden md:flex items-center justify-center h-full mx-auto md:max-w-screen-2xl mt-4 mb-4">
