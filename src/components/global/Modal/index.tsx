@@ -125,7 +125,7 @@ const Window: FC<WindowProps> = ({ children, name }) => {
           <div className="relative mt-10">
             {" "}
             <motion.div
-              variants={slideIn("up", "tween", 0.3)}
+              variants={slideIn("up", "tween", 0.5)}
               initial="hidden"
               animate="show"
               exit="hidden"
