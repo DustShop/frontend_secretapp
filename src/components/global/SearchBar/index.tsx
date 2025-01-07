@@ -76,7 +76,7 @@ const Search = ({ selectedFilter }: SearchBarProps) => {
               </div>
 
               {selectedFilter === "Escorts" && (
-                <div className="hidden lg:flex flex-row items-center">
+                <div className="hidden lg:flex flex-row items-center gap-2">
                   <Button
                     onClick={() => setSelected("Female")}
                     className={`transition duration-300 ${
