@@ -8,11 +8,12 @@ import { Button } from "../../ui/button";
 import { SearchBarProps } from "./types";
 import useClickOutside from "../../../hooks/useClickOutside";
 import Modal from "../Modal";
+import { IoMdClose } from "react-icons/io";
 
 const Search = ({ selectedFilter }: SearchBarProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [, setIsModalOpen] = useState<boolean>(false);
 
   const [selectedDistance, setSelectedDistance] =
     useState<string>("within 5mi");
@@ -126,29 +127,32 @@ const Search = ({ selectedFilter }: SearchBarProps) => {
         </div>
 
         <div className="md:hidden relative flex items-center">
-          <Modal>
-            <Modal.Trigger name="settingsModal">
-              <div className="cursor-pointer rounded-full shadow-lg transition duration-300 flex flex-row justify-between items-center gap-2 border border-gray-300 p-2 hover:rounded-full hover:shadow-lg sm:hover:rounded-full sm:hover:shadow-lg">
-                <VscSettings className="w-6 h-6" />
-              </div>
-            </Modal.Trigger>
-            <Modal.Window name="settingsModal">
-              <div>
-                <Modal.WindowHeader title="Filters" />
-                <div className="p-4">
-                  <p>This is the settings modal content.</p>
-                  <button
-                    onClick={() => setIsModalOpen(false)}
-                    className="btn btn-secondary mt-4"
-                  >
-                    Close Modal
-                  </button>
-                </div>
-              </div>
-            </Modal.Window>
-          </Modal>
+          <div
+            className="cursor-pointer rounded-full shadow-lg transition duration-300 flex flex-row justify-between items-center gap-2 border border-gray-300 p-2 hover:rounded-full hover:shadow-lg sm:hover:rounded-full sm:hover:shadow-lg"
+            onClick={() => setIsModalOpen(true)}
+          >
+            <VscSettings className="w-6 h-6" />
+          </div>
         </div>
       </div>
+
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <div>
+          <header className="flex items-center px-6 py-3 rounded-t justify-center relative border-b-[1px] text-black">
+            <button
+              type="button"
+              className="p-1 border-0 hover:opacity-70 transition absolute left-6"
+              onClick={() => setIsModalOpen(false)}
+            >
+              <IoMdClose size={18} />
+            </button>
+            <h4 className="text-[16px] font-semibold">Filters</h4>
+          </header>
+          <div className="p-4">
+            <p>This is the settings modal content.</p>
+          </div>
+        </div>
+      </Modal>
     </>
   );
 };
