@@ -1,11 +1,40 @@
 import { Heart, House, User } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const NavigationBar = () => {
   const [activeTab, setActiveTab] = useState("home");
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const handleScroll = () => {
+    if (typeof window !== "undefined") {
+      if (window.scrollY > lastScrollY) {
+        // Scroll down
+        setIsVisible(false);
+      } else {
+        // Scroll up
+        setIsVisible(true);
+      }
+      setLastScrollY(window.scrollY);
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, [lastScrollY]);
 
   return (
-    <div className="fixed md:hidden bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 dark:bg-white dark:border-gray-200">
+    <div
+      className={`fixed md:hidden bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 dark:bg-white dark:border-gray-200 transition-transform duration-300 ${
+        isVisible ? "translate-y-0" : "translate-y-full"
+      }`}
+    >
       <div className="grid h-full max-w-[80%] grid-cols-3 mx-auto font-medium">
         <button
           type="button"
