@@ -9,10 +9,8 @@ export const NavigationBar = () => {
   const handleScroll = () => {
     if (typeof window !== "undefined") {
       if (window.scrollY > lastScrollY) {
-        // Scroll down
         setIsVisible(false);
       } else {
-        // Scroll up
         setIsVisible(true);
       }
       setLastScrollY(window.scrollY);
@@ -27,6 +25,7 @@ export const NavigationBar = () => {
         window.removeEventListener("scroll", handleScroll);
       };
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastScrollY]);
 
   return (
