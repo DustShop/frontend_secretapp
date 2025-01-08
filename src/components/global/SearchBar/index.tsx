@@ -152,6 +152,22 @@ const Search = ({ selectedFilter }: SearchBarProps) => {
             <p>This is the settings modal content.</p>
           </div>
         </div>
+        {isModalOpen && (
+          <div
+            className="p-4 flex lg:hidden justify-between absolute bottom-4 w-full shadow-lg  border-gray-300 h-[100px]"
+            style={{
+              boxShadow:
+                "0 -2px 16px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.04)",
+            }}
+          >
+            <button className="btn btn-danger text-black">
+              Remover Filtro
+            </button>
+            <button className="btn btn-primary text-black">
+              Mostrar Resultados
+            </button>
+          </div>
+        )}
       </Modal>
     </>
   );

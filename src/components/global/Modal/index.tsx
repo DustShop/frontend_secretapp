@@ -67,7 +67,7 @@ const Modal: FC<ModalProps> & {
           exit="hidden"
           className="justify-center items-center flex w-full h-full overflow-hidden fixed inset-0 z-50 outline-none focus:outline-none bg-neutral-800/70"
         >
-          <div className="relative mt-10">
+          <div className="relative mt-7">
             <motion.div
               variants={slideIn("up", "tween", 0.5)}
               initial="hidden"
