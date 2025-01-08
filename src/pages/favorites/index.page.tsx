@@ -6,7 +6,6 @@ import Layout from "@/layout";
 
 
 const FavoritesPage = () => {
-  console.log("favorites Page");
   return (
     <Layout>
       <Wrapper className="flex flex-col items-center justify-center py-12 relative">

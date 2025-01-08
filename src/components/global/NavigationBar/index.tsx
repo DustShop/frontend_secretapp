@@ -24,6 +24,15 @@ export const NavigationBar = () => {
     };
   }, [lastScrollY]);
 
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    path: string
+  ) => {
+    if (router.pathname === path) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div
       className={`fixed md:hidden bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 transition-transform duration-300 ${
@@ -33,6 +42,7 @@ export const NavigationBar = () => {
       <div className="grid h-full max-w-[80%] grid-cols-3 mx-auto font-medium">
         <Link
           href="/"
+          onClick={(e) => handleClick(e, "/")}
           className="flex flex-col items-center justify-center px-5"
         >
           <House
@@ -51,6 +61,7 @@ export const NavigationBar = () => {
         </Link>
         <Link
           href="/favorites"
+          onClick={(e) => handleClick(e, "/favorites")}
           className="flex flex-col items-center justify-center px-5"
         >
           <Heart
@@ -69,6 +80,7 @@ export const NavigationBar = () => {
         </Link>
         <Link
           href="/profile"
+          onClick={(e) => handleClick(e, "/profile")}
           className="flex flex-col items-center justify-center px-5"
         >
           <User

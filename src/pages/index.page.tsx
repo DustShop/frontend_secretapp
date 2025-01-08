@@ -5,7 +5,8 @@ import Container from "../components/global/container";
 import HomeCards from "../components/HomeCards";
 
 export default function Home() {
-  console.log("Home Page");
+
+
   return (
     <Layout>
       <Wrapper className="flex flex-col items-center justify-center py-12 relative">

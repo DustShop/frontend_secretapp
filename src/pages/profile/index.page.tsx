@@ -5,7 +5,6 @@ import Wrapper from "@/components/global/wrapper";
 import Layout from "@/layout";
 
 const ProfilePage = () => {
-  console.log("profile Page");
   return (
     <Layout>
       <Wrapper className="flex flex-col items-center justify-center py-12 relative">
