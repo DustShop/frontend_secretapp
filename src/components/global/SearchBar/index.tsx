@@ -13,6 +13,7 @@ import { IoMdClose } from "react-icons/io";
 const Search = ({ selectedFilter }: SearchBarProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const filteredQuantity = 1500;
 
 
   const [selectedDistance, setSelectedDistance] =
@@ -154,18 +155,25 @@ const Search = ({ selectedFilter }: SearchBarProps) => {
         </div>
         {isModalOpen && (
           <div
-            className="p-4 flex lg:hidden justify-between absolute bottom-4 w-full shadow-lg  border-gray-300 h-[100px]"
+            className="p-6 flex flex-col gap-3 md:hidden justify-between absolute bottom-4 w-full shadow-lg border-gray-300"
             style={{
               boxShadow:
                 "0 -2px 16px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.04)",
             }}
           >
-            <button className="btn btn-danger text-black">
-              Remover Filtro
-            </button>
-            <button className="btn btn-primary text-black">
-              Mostrar Resultados
-            </button>
+            <Button
+              variant="secondary"
+              className="text-base font-semibold h-[40px]"
+            >
+              Show results ({filteredQuantity})
+            </Button>
+            <Button
+              variant="outline"
+              className="text-base font-semibold h-[40px]"
+              onClick={() => setIsModalOpen(false)}
+            >
+              Close
+            </Button>
           </div>
         )}
       </Modal>
