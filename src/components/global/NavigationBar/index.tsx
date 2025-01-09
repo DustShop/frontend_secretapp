@@ -22,6 +22,7 @@ export const NavigationBar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastScrollY]);
 
   const handleClick = (
@@ -46,13 +47,13 @@ export const NavigationBar = () => {
           className="flex flex-col items-center justify-center px-5"
         >
           <House
-            color={router.pathname === "/" ? "#2563eb" : "#6a6a6a"}
-            className={router.pathname === "/" ? "text-blue-600" : ""}
+            color={router.pathname === "/" ? "#E25352" : "#6a6a6a"}
+            className={router.pathname === "/" ? "text-[#E25352]" : ""}
           />
           <span
             className={`text-sm ${
               router.pathname === "/"
-                ? "text-blue-600"
+                ? "text-[#E25352]"
                 : "text-gray-500 dark:text-gray-400"
             }`}
           >
@@ -65,13 +66,13 @@ export const NavigationBar = () => {
           className="flex flex-col items-center justify-center px-5"
         >
           <Heart
-            color={router.pathname === "/favorites" ? "#2563eb" : "#6a6a6a"}
-            className={router.pathname === "/favorites" ? "text-blue-600" : ""}
+            color={router.pathname === "/favorites" ? "#E25352" : "#6a6a6a"}
+            className={router.pathname === "/favorites" ? "text-[#E25352]" : ""}
           />
           <span
             className={`text-sm ${
               router.pathname === "/favorites"
-                ? "text-blue-600"
+                ? "text-[#E25352]"
                 : "text-gray-500 dark:text-gray-400"
             }`}
           >
@@ -84,13 +85,13 @@ export const NavigationBar = () => {
           className="flex flex-col items-center justify-center px-5"
         >
           <User
-            color={router.pathname === "/profile" ? "#2563eb" : "#6a6a6a"}
-            className={router.pathname === "/profile" ? "text-blue-600" : ""}
+            color={router.pathname === "/profile" ? "#E25352" : "#6a6a6a"}
+            className={router.pathname === "/profile" ? "text-[#E25352]" : ""}
           />
           <span
             className={`text-sm ${
               router.pathname === "/profile"
-                ? "text-blue-600"
+                ? "text-[#E25352]"
                 : "text-gray-500 dark:text-gray-400"
             }`}
           >
