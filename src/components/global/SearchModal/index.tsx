@@ -4,13 +4,11 @@ import { Button } from "../../ui/button";
 import Modal from "../Modal";
 import MainFilterButtons from "../../MainFilterButtons";
 import { useState } from "react";
+import { SearchModalProps } from "./types";
 
-interface SearchModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
 
-export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
+
+export const SearchModal = ({ isOpen, onClose } : SearchModalProps) => {
   const [selected, setSelected] = useState<string>("Escorts");
   const filteredQuantity = 1500;
 
