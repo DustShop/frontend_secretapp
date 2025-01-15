@@ -6,8 +6,6 @@ import MainFilterButtons from "../../MainFilterButtons";
 import { useState } from "react";
 import { SearchModalProps } from "./types";
 
-
-
 export const SearchModal = ({ isOpen, onClose } : SearchModalProps) => {
   const [selected, setSelected] = useState<string>("Escorts");
   const filteredQuantity = 1500;
