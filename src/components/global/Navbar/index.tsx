@@ -12,7 +12,7 @@ import { VscSettings } from "react-icons/vsc";
 import useClickOutside from "../../../hooks/useClickOutside";
 import Modal from "../Modal";
 import { IoMdClose } from "react-icons/io";
-import ChooseButtons from "../../MainFilterButtons";
+import ChooseButtons from "../MainFilterButtons";
 
 interface NavbarProps {
   preview?: boolean;
