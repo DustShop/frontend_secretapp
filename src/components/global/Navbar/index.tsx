@@ -5,7 +5,6 @@ import Icons from "../../global/icons";
 import { useRef, useState } from "react";
 import { Button } from "../../ui/button";
 import LanguageDropdown from "../Language";
-import { useTranslation } from "react-i18next";
 import { RxAvatar } from "react-icons/rx";
 import { Menu } from "lucide-react";
 import Search from "../SearchBar";
@@ -13,6 +12,7 @@ import { VscSettings } from "react-icons/vsc";
 import useClickOutside from "../../../hooks/useClickOutside";
 import Modal from "../Modal";
 import { IoMdClose } from "react-icons/io";
+import ChooseButtons from "../../ChooseButtons";
 
 interface NavbarProps {
   preview?: boolean;
@@ -23,8 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({ name = "Escort Site" }) => {
   const [selected, setSelected] = useState<string>("Escorts");
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
-  const { t } = useTranslation();
+
 
   const dropdownRef = useRef<HTMLDivElement>(null!);
 
@@ -45,30 +44,7 @@ const Navbar: React.FC<NavbarProps> = ({ name = "Escort Site" }) => {
                 <span className="text-lg font-medium">{name}</span>
               </Link>
             </div>
-            <nav className="hidden md:block">
-              <ul className="flex items-center justify-center gap-6">
-                <Button
-                  onClick={() => setSelected("Escorts")}
-                  className={`transition duration-300 ${
-                    selected === "Escorts"
-                      ? "bg-gray-100 rounded-lg font-bold"
-                      : "hover:bg-gray-100 hover:rounded-lg"
-                  }`}
-                >
-                  {t("header.navbar.options.escorts")}
-                </Button>
-                <Button
-                  onClick={() => setSelected("Nighthouses")}
-                  className={`transition duration-300 ${
-                    selected === "Nighthouses"
-                      ? "bg-gray-100 rounded-lg font-bold"
-                      : "hover:bg-gray-100 hover:rounded-lg"
-                  }`}
-                >
-                  {t("header.navbar.options.nighthouses")}
-                </Button>
-              </ul>
-            </nav>
+            <ChooseButtons selected={selected} setSelected={setSelected} />
             <div className="relative flex items-center gap-4" ref={dropdownRef}>
               <LanguageDropdown />
               <div
@@ -158,7 +134,6 @@ const Navbar: React.FC<NavbarProps> = ({ name = "Escort Site" }) => {
             <h4 className="text-[16px] font-semibold">Filters</h4>
           </header>
           <div className="p-4">
-            <p>This is the settings modal content.</p>
           </div>
         </div>
       </Modal>

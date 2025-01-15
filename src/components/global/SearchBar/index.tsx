@@ -7,18 +7,15 @@ import { VscSettings } from "react-icons/vsc";
 import { Button } from "../../ui/button";
 import { SearchBarProps } from "./types";
 import useClickOutside from "../../../hooks/useClickOutside";
-import Modal from "../Modal";
-import { IoMdClose } from "react-icons/io";
+import SearchModal from "../SearchModal";
 
 const Search = ({ selectedFilter }: SearchBarProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const filteredQuantity = 1500;
-
 
   const [selectedDistance, setSelectedDistance] =
     useState<string>("within 5mi");
-    
+
   const [selected, setSelected] = useState<string>("");
   const dropdownRef = useRef<HTMLDivElement>(null!);
 
@@ -137,45 +134,7 @@ const Search = ({ selectedFilter }: SearchBarProps) => {
         </div>
       </div>
 
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <div>
-          <header className="flex items-center px-6 py-3 rounded-t justify-center relative border-b-[1px] text-black">
-            <button
-              type="button"
-              className="p-1 border-0 hover:opacity-70 transition absolute left-6"
-              onClick={() => setIsModalOpen(false)}
-            >
-              <IoMdClose size={18} />
-            </button>
-            <h4 className="text-[16px] font-semibold">Filters</h4>
-          </header>
-          <div className="p-4">
-            <p>This is the settings modal content.</p>
-          </div>
-        </div>
-        {isModalOpen && (
-          <div
-            className="p-6 flex flex-col gap-3 md:hidden justify-between absolute bottom-4 w-full shadow-lg rounded-t-3xl border-gray-300"
-            style={{
-              boxShadow: "0px -22px 15px -3px rgba(0,0,0,0.1)",
-            }}
-          >
-            <Button
-              variant="secondary"
-              className="text-base font-semibold h-[40px]"
-            >
-              Show results ({filteredQuantity})
-            </Button>
-            <Button
-              variant="outline"
-              className="text-base font-semibold h-[40px]"
-              onClick={() => setIsModalOpen(false)}
-            >
-              Close
-            </Button>
-          </div>
-        )}
-      </Modal>
+      <SearchModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 };
