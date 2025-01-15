@@ -67,18 +67,16 @@ const Modal: FC<ModalProps> & {
           exit="hidden"
           className="justify-center items-center flex w-full h-full overflow-hidden fixed inset-0 z-50 outline-none focus:outline-none bg-neutral-800/70"
         >
-          <div className="relative mt-7">
-            <motion.div
-              variants={slideIn("up", "tween", 0.5)}
-              initial="hidden"
-              animate="show"
-              exit="hidden"
-              className="md:h-auto h-screen md:max-h-screen overflow-y-auto rounded-lg shadow-lg w-screen bg-white md:w-[420px]"
-              ref={ref}
-            >
-              {children}
-            </motion.div>
-          </div>
+          <motion.div
+            variants={slideIn("up", "tween", 0.5)}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            className="md:h-auto h-full md:max-h-[90vh] overflow-y-auto rounded-lg shadow-lg w-full md:w-[420px] bg-white"
+            ref={ref}
+          >
+            {children}
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>,
@@ -88,7 +86,16 @@ const Modal: FC<ModalProps> & {
 
 const WindowHeader: FC<WindowHeaderProps> = ({ title, onClose }) => {
   return (
-    <header className="flex items-center px-6 py-3 rounded-t justify-center relative border-b-[1px] text-black">
+    <motion.header
+      drag="y"
+      dragConstraints={{ top: 0, bottom: 300 }}
+      onDragEnd={(event, info) => {
+        if (info.offset.y > 150) {
+          onClose();
+        }
+      }}
+      className="flex items-center px-6 py-3 rounded-t justify-center relative border-b-[1px] text-black"
+    >
       <button
         type="button"
         className="p-1 border-0 hover:opacity-70 transition absolute left-6"
@@ -97,7 +104,7 @@ const WindowHeader: FC<WindowHeaderProps> = ({ title, onClose }) => {
         <IoMdClose size={18} />
       </button>
       <h4 className="text-[16px] font-semibold">{title}</h4>
-    </header>
+    </motion.header>
   );
 };
 

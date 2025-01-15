@@ -155,10 +155,9 @@ const Search = ({ selectedFilter }: SearchBarProps) => {
         </div>
         {isModalOpen && (
           <div
-            className="p-6 flex flex-col gap-3 md:hidden justify-between absolute bottom-4 w-full shadow-lg border-gray-300"
+            className="p-6 flex flex-col gap-3 md:hidden justify-between absolute bottom-4 w-full shadow-lg rounded-t-3xl border-gray-300"
             style={{
-              boxShadow:
-                "0 -2px 16px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.04)",
+              boxShadow: "0px -22px 15px -3px rgba(0,0,0,0.1)",
             }}
           >
             <Button
