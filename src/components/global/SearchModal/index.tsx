@@ -2,7 +2,7 @@
 import { IoMdClose } from "react-icons/io";
 import { Button } from "../../ui/button";
 import Modal from "../Modal";
-import ChooseButtons from "../../ChooseButtons";
+import MainFilterButtons from "../../MainFilterButtons";
 import { useState } from "react";
 
 interface SearchModalProps {
@@ -28,7 +28,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
           <h4 className="text-[16px] font-semibold">Filters</h4>
         </header>
         <div className="p-4">
-          <ChooseButtons selected={selected} setSelected={setSelected} />
+          <MainFilterButtons selected={selected} setSelected={setSelected} />
         </div>
       </div>
       {isOpen && (

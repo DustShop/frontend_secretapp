@@ -2,7 +2,7 @@ import { t } from "i18next";
 import { Button } from "../ui/button";
 import { ChooseButtonsProps } from "./types";
 
-export const ChooseButtons = ({ selected, setSelected }: ChooseButtonsProps) => {
+export const MainFilterButtons = ({ selected, setSelected }: ChooseButtonsProps) => {
   return (
     <nav className=" md:block">
       <ul className="flex items-center justify-center gap-6 text-black">
@@ -31,4 +31,4 @@ export const ChooseButtons = ({ selected, setSelected }: ChooseButtonsProps) => 
   );
 };
 
-export default ChooseButtons;
+export default MainFilterButtons;
