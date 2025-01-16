@@ -1,63 +1,60 @@
-'use client'
-import Link from 'next/link'
+"use client";
+import Link from "next/link";
 
-import Icons from '../global/icons'
+import Icons from "../global/icons";
 
 const Footer = () => {
-  
   return (
-    <footer
-      className="flex flex-col relative items-center justify-center border-t border-border pt-16 pb-8 px-6 lg:px-8 w-screen mx-auto bg-[#ECEFF1]"
-    >
-      <div className="grid gap-8 xl:grid-cols-1 xl:gap-8 w-full pb-8">
-        <div className="grid-cols-4 gap-6 grid xl:col-span-4 xl:mt-0">
-          <div className="flex flex-row gap-1 items-center">
+    <footer className="flex flex-col items-center justify-center border-t border-border pt-8 pb-4 px-4 sm:pt-16 sm:pb-8 sm:px-6 lg:px-8 w-full bg-gray-800">
+      <div className="grid gap-8 w-full pb-8">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 w-full">
+          <div className="flex flex-row gap-2 items-center">
             <Icons.logo className="w-7 h-7" />
-            <p className="text-black text-sm text-start">Escort Site</p>
+            <p className="text-white text-sm text-start">Escort Site</p>
           </div>
-          <div className="md:grid md:gap-8">
-            <div className="mt-10 md:mt-0 flex flex-col">
-              <h3 className="text-base font-medium text-black">Menu</h3>
-              <ul className="mt-1 text-sm text-black">
-                <li className="mt-2">
-                  <Link
-                    href=""
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li className="mt-1">
-                  <Link
-                    href=""
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Membership & Pricing
-                  </Link>
-                </li>
-                <li className="mt-1">
-                  <Link
-                    href=""
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Sing up
-                  </Link>
-                </li>
-                <li className="mt-1">
-                  <Link
-                    href=""
-                    className="hover:text-foreground transition-all duration-300"
-                  >
-                    Login
-                  </Link>
-                </li>
-              </ul>
-            </div>
+
+          <div className="flex flex-col">
+            <h3 className="text-base font-medium text-white">Menu</h3>
+            <ul className="mt-2 text-sm text-gray-400">
+              <li className="mt-2">
+                <Link
+                  href=""
+                  className="hover:text-foreground transition-all duration-300"
+                >
+                  Home
+                </Link>
+              </li>
+              <li className="mt-1">
+                <Link
+                  href=""
+                  className="hover:text-foreground transition-all duration-300"
+                >
+                  Membership & Pricing
+                </Link>
+              </li>
+              <li className="mt-1">
+                <Link
+                  href=""
+                  className="hover:text-foreground transition-all duration-300"
+                >
+                  Sign up
+                </Link>
+              </li>
+              <li className="mt-1">
+                <Link
+                  href=""
+                  className="hover:text-foreground transition-all duration-300"
+                >
+                  Login
+                </Link>
+              </li>
+            </ul>
           </div>
-          <div className="mt-10 md:mt-0 flex flex-col">
-            <h3 className="text-base font-medium text-black">Browse</h3>
-            <ul className="mt-2 text-sm text-black">
-              <li className="">
+
+          <div className="flex flex-col">
+            <h3 className="text-base font-medium text-white">Browse</h3>
+            <ul className="mt-2 text-sm text-gray-400">
+              <li>
                 <Link
                   href=""
                   className="hover:text-foreground transition-all duration-300"
@@ -75,10 +72,11 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="mt-10 md:mt-0 flex flex-col">
-            <h3 className="text-base font-medium text-black">Platform</h3>
-            <ul className="mt-2 text-sm text-black">
-              <li className="">
+
+          <div className="flex flex-col">
+            <h3 className="text-base font-medium text-white">Platform</h3>
+            <ul className="mt-2 text-sm text-gray-400">
+              <li>
                 <Link
                   href=""
                   className="hover:text-foreground transition-all duration-300"
@@ -139,13 +137,13 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t border-border/40 pt-4 md:pt-8 md:flex md:items-center md:justify-between w-full">
-        <p className="text-sm text-black mt-8 md:mt-0">
+      <div className="border-t border-border/40 pt-4 mt-8 w-full text-center">
+        <p className="text-sm text-gray-400">
           &copy; {new Date().getFullYear()} Escort Site. All rights reserved.
         </p>
       </div>
     </footer>
   );
-}
+};
 
-export default Footer
+export default Footer;
