@@ -4,7 +4,7 @@ import { ChooseButtonsProps } from "./types";
 
 export const MainFilterButtons = ({ selected, setSelected }: ChooseButtonsProps) => {
   return (
-    <nav className=" md:block">
+    <nav className="md:block mb-4">
       <ul className="flex items-center justify-center gap-6 text-black">
         <Button
           onClick={() => setSelected("Escorts")}
