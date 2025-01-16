@@ -76,7 +76,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="mt-10 md:mt-0 flex flex-col">
-            <h3 className="text-base font-medium text-black">Plataform</h3>
+            <h3 className="text-base font-medium text-black">Platform</h3>
             <ul className="mt-2 text-sm text-black">
               <li className="">
                 <Link
