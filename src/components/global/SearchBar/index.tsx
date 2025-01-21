@@ -1,12 +1,14 @@
 "use client";
 import React, { useRef, useState } from "react";
+
 import { FaSearch } from "react-icons/fa";
 import { HiMapPin } from "react-icons/hi2";
 import { TiArrowUnsorted } from "react-icons/ti";
 import { VscSettings } from "react-icons/vsc";
-import { Button } from "../../ui/button";
+
 import { SearchBarProps } from "./types";
 import useClickOutside from "../../../hooks/useClickOutside";
+import { Button } from "../../ui/button";
 import SearchModal from "../SearchModal";
 
 const Search = ({ selectedFilter }: SearchBarProps) => {
@@ -32,39 +34,43 @@ const Search = ({ selectedFilter }: SearchBarProps) => {
 
   return (
     <>
-      <div className="flex flex-row items-center gap-4">
-        <div className="flex flex-row items-center border-[1px] sm:w-auto min-h-14 md:w-auto py-2 rounded-full shadow-sm transition duration-300 cursor-pointer">
-          <div className="flex flex-row justify-between items-center">
-            <div className="flex flex-row items-center text-sm font-bold px-6 text-[#585858] hover:text-gray-800 transition duration-200">
-              <HiMapPin size={20} className="mr-2" />
+      <div className='flex flex-row items-center gap-4'>
+        <div className='flex flex-row items-center border-[1px] sm:w-auto min-h-14 md:w-auto py-2 rounded-full shadow-sm transition duration-300 cursor-pointer'>
+          <div className='flex flex-row justify-between items-center'>
+            <div className='hidden lg:flex flex-row items-center text-sm font-bold px-6 text-[#585858] hover:text-gray-800 transition duration-200'>
+              <HiMapPin size={20} className='mr-2' />
               <input
-                type="text"
-                placeholder="A city or postcode"
-                className="outline-none border-none text-sm bg-transparent"
+                type='text'
+                placeholder='A city or country'
+                className='outline-none border-none text-sm bg-transparent'
               />
             </div>
 
-            <div className="hidden md:flex border-l-[1px] h-6 mx-4" />
-
-            <div className="hidden md:flex relative text-sm pr-2 text-gray-600 flex-row items-center gap-4">
+            <div className='flex lg:hidden flex-row items-center text-sm font-bold px-6 text-[#585858] hover:text-gray-800 transition duration-200'>
+              <HiMapPin size={20} className='mr-2' />
               <div
-                className="flex flex-row items-center"
-                onClick={toggleDropdown}
-                ref={dropdownRef}
+                className='outline-none border-none text-sm bg-transparent cursor-pointer'
+                onClick={() => setIsModalOpen(true)}
               >
-                <TiArrowUnsorted size={15} className="mr-2" />
-                <small className="font-normal text-sm hover:text-gray-800 transition duration-200 cursor-pointer select-none">
+                City or country / Gender
+              </div>
+            </div>
+
+            <div className='hidden md:flex border-l-[1px] h-6 mx-4' />
+
+            <div className='hidden md:flex relative text-sm pr-2 text-gray-600 flex-row items-center gap-4'>
+              <div className='flex flex-row items-center' onClick={toggleDropdown} ref={dropdownRef}>
+                <TiArrowUnsorted size={15} className='mr-2' />
+                <small className='font-normal text-sm hover:text-gray-800 transition duration-200 cursor-pointer select-none'>
                   {selectedDistance}
                 </small>
                 {isDropdownOpen && (
-                  <ul className="absolute top-full mt-2 bg-white border rounded-lg shadow-lg w-32">
-                    {["5mi", "15mi", "30mi", "60mi"].map((distance) => (
+                  <ul className='absolute top-full mt-2 bg-white border rounded-lg shadow-lg w-32'>
+                    {['5mi', '15mi', '30mi', '60mi'].map(distance => (
                       <li
                         key={distance}
-                        onClick={() =>
-                          handleSelectDistance(`within ${distance}`)
-                        }
-                        className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                        onClick={() => handleSelectDistance(`within ${distance}`)}
+                        className='px-4 py-2 hover:bg-gray-200 cursor-pointer'
                       >
                         within {distance}
                       </li>
@@ -73,70 +79,66 @@ const Search = ({ selectedFilter }: SearchBarProps) => {
                 )}
               </div>
 
-              {selectedFilter === "Escorts" && (
-                <div className="hidden lg:flex flex-row items-center gap-2">
+              {selectedFilter === 'Escorts' && (
+                <div className='hidden lg:flex flex-row items-center gap-2'>
                   <Button
-                    onClick={() => setSelected("Female")}
+                    onClick={() => setSelected('Female')}
                     className={`transition duration-300 ${
-                      selected === "Female"
-                        ? "bg-gray-100 rounded-lg font-bold"
-                        : "hover:bg-gray-100 hover:rounded-lg"
+                      selected === 'Female' ? 'bg-gray-100 rounded-lg font-bold' : 'hover:bg-gray-100 hover:rounded-lg'
                     }`}
                   >
                     Female
                   </Button>
                   <Button
-                    onClick={() => setSelected("Male")}
+                    onClick={() => setSelected('Male')}
                     className={`transition duration-300 ${
-                      selected === "Male"
-                        ? "bg-gray-100 rounded-lg font-bold"
-                        : "hover:bg-gray-100 hover:rounded-lg"
+                      selected === 'Male' ? 'bg-gray-100 rounded-lg font-bold' : 'hover:bg-gray-100 hover:rounded-lg'
                     }`}
                   >
                     Male
                   </Button>
                   <Button
-                    onClick={() => setSelected("Non-binary")}
+                    onClick={() => setSelected('Non-binary')}
                     className={`transition duration-300 ${
-                      selected === "Non-binary"
-                        ? "bg-gray-100 rounded-lg font-bold"
-                        : "hover:bg-gray-100 hover:rounded-lg"
+                      selected === 'Non-binary'
+                        ? 'bg-gray-100 rounded-lg font-bold'
+                        : 'hover:bg-gray-100 hover:rounded-lg'
                     }`}
                   >
                     Non-binary
                   </Button>
                   <Button
-                    onClick={() => setSelected("Trans only")}
+                    onClick={() => setSelected('Trans only')}
                     className={`transition duration-300 ${
-                      selected === "Trans only"
-                        ? "bg-gray-100 rounded-lg font-bold"
-                        : "hover:bg-gray-100 hover:rounded-lg"
+                      selected === 'Trans only'
+                        ? 'bg-gray-100 rounded-lg font-bold'
+                        : 'hover:bg-gray-100 hover:rounded-lg'
                     }`}
                   >
                     Trans only
                   </Button>
                 </div>
               )}
-              <div className="p-2 bg-black rounded-full text-white">
-                <FaSearch className="text-[13px]" />
+              <div className='p-2 bg-black rounded-full text-white'>
+                <FaSearch className='text-[13px]' />
               </div>
             </div>
           </div>
         </div>
 
-        <div className="md:hidden relative flex items-center">
+        <div className='md:hidden relative flex items-center'>
           <div
-            className="cursor-pointer rounded-full shadow-lg transition duration-300 flex flex-row justify-between items-center gap-2 border border-gray-300 p-2 hover:rounded-full hover:shadow-lg sm:hover:rounded-full sm:hover:shadow-lg"
+            className='cursor-pointer rounded-full shadow-lg transition duration-300 flex flex-row justify-between items-center gap-2 border border-gray-300 p-2 hover:rounded-full hover:shadow-lg sm:hover:rounded-full sm:hover:shadow-lg'
             onClick={() => setIsModalOpen(true)}
           >
-            <VscSettings className="w-6 h-6" />
+            <VscSettings className='w-6 h-6' />
           </div>
         </div>
       </div>
 
       <SearchModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
-  );
+  )
 };
 
 export default Search;

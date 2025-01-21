@@ -1,6 +1,7 @@
 import { t } from "i18next";
-import { Button } from "../../ui/button";
+
 import { ChooseButtonsProps } from "./types";
+import { Button } from "../../ui/button";
 
 export const MainFilterButtons = ({ selected, setSelected }: ChooseButtonsProps) => {
   return (
