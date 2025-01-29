@@ -1,10 +1,13 @@
 'use client'
-import { IoMdClose } from "react-icons/io";
-import { Button } from "../../ui/button";
-import Modal from "../Modal";
-import MainFilterButtons from "../MainFilterButtons";
 import { useState } from "react";
+
+import { HiMapPin } from "react-icons/hi2";
+import { IoMdClose } from "react-icons/io";
+
 import { SearchModalProps } from "./types";
+import { Button } from "../../ui/button";
+import MainFilterButtons from "../MainFilterButtons";
+import Modal from "../Modal";
 
 export const SearchModal = ({ isOpen, onClose } : SearchModalProps) => {
   const [selected, setSelected] = useState<string>("Escorts");
@@ -25,6 +28,14 @@ export const SearchModal = ({ isOpen, onClose } : SearchModalProps) => {
         </header>
         <div className="p-4">
           <MainFilterButtons selected={selected} setSelected={setSelected} />
+        </div>
+        <div className="flex flex-row items-center text-sm font-bold px-6 text-[#585858] hover:text-gray-800 transition duration-200">
+          <HiMapPin size={20} className="mr-2" />
+            <input
+              type="text"
+              placeholder="A city or postcode"
+              className="outline-none border-none text-sm bg-transparent"
+            />
         </div>
       </div>
       {isOpen && (
